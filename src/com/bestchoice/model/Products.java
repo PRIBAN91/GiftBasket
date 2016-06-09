@@ -8,7 +8,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "product_list")
-public class ProductList {
+public class Products {
 
 	@Id
 	@Column(name = "SequenceNum")
@@ -123,7 +123,7 @@ public class ProductList {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProductList other = (ProductList) obj;
+		Products other = (Products) obj;
 		if (sequenceNum != other.sequenceNum)
 			return false;
 		return true;

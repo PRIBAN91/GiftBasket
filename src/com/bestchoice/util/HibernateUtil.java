@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
-import com.bestchoice.model.ProductList;
+import com.bestchoice.model.Products;
 
 public class HibernateUtil {
 
@@ -31,7 +31,7 @@ public class HibernateUtil {
 
 			ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
 					.applySettings(configuration.getProperties()).build();
-			configuration.addAnnotatedClass(ProductList.class);
+			configuration.addAnnotatedClass(Products.class);
 
 			sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 
