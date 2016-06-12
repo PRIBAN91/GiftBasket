@@ -1,11 +1,17 @@
 package com.bestchoice.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.bestchoice.bo.MakeBestChoiceLogic;
 
 /**
  * Servlet implementation class MakeBestChoice
@@ -29,13 +35,16 @@ public class MakeBestChoice extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String arr[] = request.getParameterValues("cars");
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		String arr[] = request.getParameterValues("products");
+		List<String> desiredProductList = new ArrayList<>();
 		if (arr != null) {
+			desiredProductList = Arrays.asList(arr);
 			for (String car : arr)
 				System.out.println(car);
 		}
-
+		MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
+		luw.getBestChoiceList(desiredProductList);
 	}
 
 	/**

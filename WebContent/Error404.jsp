@@ -10,7 +10,7 @@
 	<div align="center">
 		<br> <br>
 		<h1>You must be lost! Let us guide you.</h1>
-		<br> <br> <a href="/SearchEnhancer/index.jsp">Click here
+		<br> <br> <a href="/GiftBasket/index.jsp">Click here
 			to go to main page!</a>
 	</div>
 </body>

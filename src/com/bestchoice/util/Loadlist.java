@@ -34,4 +34,25 @@ public class Loadlist {
 		return ar;
 	}
 
+	@SuppressWarnings("unchecked")
+	public ArrayList<Products> loadWordList(List<String> desiredList) {
+		System.out.println("Inside load method :: ");
+		// Get sessionfactory object initialized in Listener.java and create
+		// session object
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		// Simple HQL for fetching list
+		Query query = session.createQuery("from Products where productName in (:list)");
+		query.setParameterList("list", desiredList);
+		ArrayList<Products> ar = new ArrayList<>();
+		try {
+			ar = (ArrayList<Products>) query.list();
+			System.out.println("Length of Items in db :: " + ar.size());
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
+		System.out.println(ar);
+		session.close();
+		return ar;
+	}
+
 }

@@ -1,12 +1,14 @@
 package com.bestchoice.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import com.bestchoice.bo.FetchProductLogic;
 
 /**
  * Servlet implementation class BasicServlet
@@ -30,9 +32,14 @@ public class BasicServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.print("<html><body><h3>Hello Servlet in Gift Basket!</h3></body></html>");
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("In basic servlet");
+		// PrintWriter out = response.getWriter();
+		FetchProductLogic fetch = new FetchProductLogic();
+		List<String> prodList = new ArrayList<>();
+		prodList = fetch.extractProductList();
+		System.out.println("Product List : " + prodList);
+		request.setAttribute("ProductList", prodList);
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	/**
