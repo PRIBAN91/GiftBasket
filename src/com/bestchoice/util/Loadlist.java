@@ -15,7 +15,7 @@ public class Loadlist {
 	 * used as an ORM tool for fetching data from table.
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList<Products> loadWordList() {
+	public ArrayList<Products> loadProductList() {
 		System.out.println("Inside load method :: ");
 		// Get sessionfactory object initialized in Listener.java and create
 		// session object
@@ -35,7 +35,7 @@ public class Loadlist {
 	}
 
 	@SuppressWarnings("unchecked")
-	public ArrayList<Products> loadWordList(List<String> desiredList) {
+	public ArrayList<Products> fetchProducts(List<String> desiredList) {
 		System.out.println("Inside load method :: ");
 		// Get sessionfactory object initialized in Listener.java and create
 		// session object

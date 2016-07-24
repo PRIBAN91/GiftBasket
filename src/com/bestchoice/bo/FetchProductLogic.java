@@ -9,7 +9,7 @@ public class FetchProductLogic {
 	public List<String> extractProductList() {
 		List<Products> productList = new ArrayList<>();
 		Loadlist load = new Loadlist();
-		productList = load.loadWordList();
+		productList = load.loadProductList();
 		List<String> prodNameList = separateProducts(productList);
 		return prodNameList;
 	}
@@ -17,7 +17,7 @@ public class FetchProductLogic {
 	public List<String> getProductList(List<String> desiredProducts) {
 		List<Products> productList = new ArrayList<>();
 		Loadlist load = new Loadlist();
-		productList = load.loadWordList(desiredProducts);
+		productList = load.fetchProducts(desiredProducts);
 		List<String> prodNameList = separateProducts(productList);
 		return prodNameList;
 	}
