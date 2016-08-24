@@ -1,20 +1,10 @@
 package com.bestchoice.optimization;
 
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class MckpExactlyOne {
 
-	static BufferedReader br = new BufferedReader(new InputStreamReader(
-			System.in));
-	static PrintWriter out = new PrintWriter(new BufferedOutputStream(
-			System.out));
-
-	public static int mckp(int W, int wt1[][], int val1[][], int n, int m[]) {
+	public int getMckpValues(int W, int wt1[][], int val1[][], int n, int m[]) {
 		int i, w;
 		int K[][] = new int[n + 1][W + 1], pos, maxi, temp, mini = Integer.MAX_VALUE, j = 1, maxPos;
 		String picks[][] = new String[n + 1][W + 1];
@@ -41,7 +31,7 @@ public class MckpExactlyOne {
 								maxi = temp;
 								maxPos = pos;
 							}
-						}// Check for 1st row
+						} // Check for 1st row
 						else if (i == 1) {
 							temp = val[pos] + K[i - 1][w - wt[pos]];
 							if (temp > maxi) {
@@ -87,34 +77,7 @@ public class MckpExactlyOne {
 
 		return K[n][W];
 	}
+	
+	
 
-	public static void main(String[] args) throws Exception {
-
-		System.out.println("Enter  : ");
-
-		StringTokenizer st = new StringTokenizer(br.readLine()), st1;
-
-		int n = Integer.parseInt(st.nextToken()), W = Integer.parseInt(st
-				.nextToken());
-
-		int val[][] = new int[n][5];
-		int wt[][] = new int[n][5];
-		int m[] = new int[n];
-
-		for (int i = 0; i < n; i++) {
-			m[i] = Integer.parseInt(br.readLine());
-			for (int j = 0; j < m[i]; j++) {
-				st1 = new StringTokenizer(br.readLine());
-				wt[i][j] = Integer.parseInt(st1.nextToken());
-				val[i][j] = Integer.parseInt(st1.nextToken());
-			}
-		}
-
-		int maxItems = mckp(W, wt, val, n, m);
-		if (maxItems == 0)
-			System.out.println("-1");
-		else {
-			System.out.println("Total costs : " + maxItems);
-		}
-	}
 }
