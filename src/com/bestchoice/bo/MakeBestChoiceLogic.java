@@ -18,7 +18,7 @@ public class MakeBestChoiceLogic {
 	}
 
 	public void separateProducts(List<Products> list) {
-		HashMap<String, ArrayList<PriceReview>> hm = new HashMap<>();
+		LinkedHashMap<String, ArrayList<PriceReview>> hm = new LinkedHashMap<>();
 		for (Products prods : list) {
 			String prodName = prods.getProductName();
 			if (!hm.containsKey(prodName)) {
@@ -30,7 +30,18 @@ public class MakeBestChoiceLogic {
 				ar.add(new PriceReview(prods.getPrice(), prods.getReviewValue()));
 				hm.put(prodName, ar);
 			}
-
+		}
+		int n = hm.size(), i = 0, m;
+		double wt[][] = new double[n][];
+		double val[][] = new double[n][];
+		for (String s : hm.keySet()) {
+			ArrayList<PriceReview> arr = new ArrayList<>(hm.get(s));
+			m = arr.size();
+			for (int j = 0; j < m; j++) {
+				wt[i][j] = arr.get(j).getReview();
+				val[i][j] = arr.get(j).getAmount();
+			}
+			i++;
 		}
 
 	}
