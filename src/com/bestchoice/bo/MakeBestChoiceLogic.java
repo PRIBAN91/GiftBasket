@@ -11,6 +11,7 @@ public class MakeBestChoiceLogic {
 	public void getBestChoiceList(List<String> desiredProducts, double budgetAmt) {
 		Loadlist load = new Loadlist();
 		List<Products> list = load.fetchProducts(desiredProducts);
+		separateProducts(list);
 		System.out.println(list);
 		// MckpExactlyOne mckp = new MckpExactlyOne();
 		// int n = list.size();
@@ -18,6 +19,7 @@ public class MakeBestChoiceLogic {
 	}
 
 	public void separateProducts(List<Products> list) {
+		int sz = list.size();
 		LinkedHashMap<String, ArrayList<PriceReview>> hm = new LinkedHashMap<>();
 		for (Products prods : list) {
 			String prodName = prods.getProductName();
@@ -31,9 +33,10 @@ public class MakeBestChoiceLogic {
 				hm.put(prodName, ar);
 			}
 		}
+
 		int n = hm.size(), i = 0, m;
-		double wt[][] = new double[n][];
-		double val[][] = new double[n][];
+		double wt[][] = new double[n][sz - n];
+		double val[][] = new double[n][sz - n];
 		for (String s : hm.keySet()) {
 			ArrayList<PriceReview> arr = new ArrayList<>(hm.get(s));
 			m = arr.size();
@@ -43,7 +46,7 @@ public class MakeBestChoiceLogic {
 			}
 			i++;
 		}
-
+		System.out.println("Hi");
 	}
 
 }
