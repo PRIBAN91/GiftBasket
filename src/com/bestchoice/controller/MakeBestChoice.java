@@ -43,7 +43,7 @@ public class MakeBestChoice extends HttpServlet {
 		}
 		System.out.println("Budget Amount : " + budgetAmt);
 		MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
-		luw.getBestChoiceList(desiredProductList, budgetAmt);
+		luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
 	}
 
 	/**
