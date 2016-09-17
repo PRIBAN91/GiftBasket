@@ -62,7 +62,7 @@ public class MckpExactlyOne {
 		int item = n, size = W;
 
 		// Loop till there are items
-		while (item > 1) {
+		while (item > 0) {
 			// If an item is picked, print it and go to [item-1] set
 			if (picks[item][size] != null && !picks[item][size].equals("-1")) {
 				int row = Integer.valueOf(picks[item][size].split(",")[0]);

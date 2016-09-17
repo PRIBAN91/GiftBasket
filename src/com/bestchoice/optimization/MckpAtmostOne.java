@@ -38,7 +38,7 @@ public class MckpAtmostOne {
 		}
 
 		int item = n, size = W;
-		while (item > 1) {
+		while (item > 0) {
 			if (!picks[item][size].equals("-1")) {
 				int row = Integer.valueOf(picks[item][size].split(",")[0]);
 				int column = Integer.valueOf(picks[item][size].split(",")[1]);

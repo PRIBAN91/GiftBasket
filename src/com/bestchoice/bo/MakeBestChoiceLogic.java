@@ -1,15 +1,15 @@
 package com.bestchoice.bo;
 
 import java.util.*;
-
-import org.apache.catalina.tribes.membership.McastService;
-
 import com.bestchoice.model.PriceReview;
 import com.bestchoice.model.Products;
 import com.bestchoice.optimization.MckpAtmostOne;
+import com.bestchoice.optimization.MckpExactlyOne;
 import com.bestchoice.util.Loadlist;
 
 public class MakeBestChoiceLogic {
+
+	private int NormFactor = 10;
 
 	public void getBestChoiceList(List<String> desiredProducts, int budgetAmt) {
 		Loadlist load = new Loadlist();
@@ -46,15 +46,17 @@ public class MakeBestChoiceLogic {
 			m = arr.size();
 			marr[i] = m;
 			for (int j = 0; j < m; j++) {
-				val[i][j] = (int) arr.get(j).getReview();
+				val[i][j] = (int) (arr.get(j).getReview() * NormFactor);
 				wt[i][j] = (int) arr.get(j).getAmount();
 			}
 			i++;
 		}
 
 		MckpAtmostOne mckp = new MckpAtmostOne();
-		mckp.getMckpValues(budgetAmt, wt, val, n, marr);
-		System.out.println("Hi");
+		int mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
+		MckpExactlyOne mckp1 = new MckpExactlyOne();
+		int mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
+		System.out.println(mckpAtmostOne + " : " + mckpExactlyone);
 	}
 
 }
