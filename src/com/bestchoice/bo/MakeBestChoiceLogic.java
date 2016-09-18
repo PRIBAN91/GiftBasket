@@ -1,6 +1,8 @@
 package com.bestchoice.bo;
 
 import java.util.*;
+
+import com.bestchoice.model.MckpReturn;
 import com.bestchoice.model.PriceReview;
 import com.bestchoice.model.Products;
 import com.bestchoice.optimization.MckpAtmostOne;
@@ -53,9 +55,9 @@ public class MakeBestChoiceLogic {
 		}
 
 		MckpAtmostOne mckp = new MckpAtmostOne();
-		int mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
+		MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
-		int mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
+		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
 		System.out.println(mckpAtmostOne + " : " + mckpExactlyone);
 	}
 

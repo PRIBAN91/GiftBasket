@@ -1,10 +1,11 @@
 package com.bestchoice.optimization;
 
 import java.util.Arrays;
+import com.bestchoice.model.MckpReturn;
 
 public class MckpAtmostOne {
 
-	public int getMckpValues(int W, int wt1[][], int val1[][], int n, int m[]) {
+	public MckpReturn getMckpValues(int W, int wt1[][], int val1[][], int n, int m[]) {
 		int i, w;
 		int K[][] = new int[n + 1][W + 1], pos, maxi, temp, maxPos;
 		String picks[][] = new String[n + 1][W + 1];
@@ -50,7 +51,9 @@ public class MckpAtmostOne {
 			}
 		}
 
-		return K[n][W];
+		MckpReturn res = new MckpReturn(picks, K[n][W]);
+
+		return res;
 	}
 
 }
