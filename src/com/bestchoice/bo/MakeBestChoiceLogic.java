@@ -49,16 +49,33 @@ public class MakeBestChoiceLogic {
 			marr[i] = m;
 			for (int j = 0; j < m; j++) {
 				val[i][j] = (int) (arr.get(j).getReview() * NormFactor);
-				wt[i][j] = (int) arr.get(j).getAmount();
+				wt[i][j] = (int) Math.round(arr.get(j).getAmount());
 			}
 			i++;
 		}
 
-		MckpAtmostOne mckp = new MckpAtmostOne();
-		MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
 		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
-		System.out.println(mckpAtmostOne + " : " + mckpExactlyone);
+		String picks[][] = mckpExactlyone.getPicks();
+		if (picks[n][budgetAmt].equals("-1")) {
+			MckpAtmostOne mckp = new MckpAtmostOne();
+			MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
+			System.out.println(mckpAtmostOne + " : " + mckpExactlyone);
+		} else {
+			int item = n, size = budgetAmt;
+			while (item > 0) {
+				if (picks[item][size] != null && !picks[item][size].equals("-1")) {
+					int row = Integer.valueOf(picks[item][size].split(",")[0]);
+					int column = Integer.valueOf(picks[item][size].split(",")[1]);
+					System.out.println(picks[item][size]);
+					item--;
+					size -= wt[row][column];
+				} else {
+					break;
+				}
+			}
+			System.out.println("Amount to be spent : " + mckpExactlyone.getAmountSpent());
+		}
 	}
 
 }

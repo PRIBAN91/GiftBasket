@@ -60,7 +60,7 @@ public class MckpExactlyOne {
 			mini = Integer.MAX_VALUE;
 		}
 
-		int item = n, size = W;
+		/*int item = n, size = W;
 
 		// Loop till there are items
 		while (item > 0) {
@@ -74,7 +74,7 @@ public class MckpExactlyOne {
 			} else {
 				break;
 			}
-		}
+		}*/
 
 		MckpReturn res = new MckpReturn(picks, K[n][W]);
 
