@@ -51,7 +51,12 @@ public class MckpAtmostOne {
 			}
 		}
 
-		MckpReturn res = new MckpReturn(picks, K[n][W]);
+		int amountTobeSpent = K[n][W];
+		for (i = 0; i <= W; i++)
+			if (K[n][i] == amountTobeSpent)
+				break;
+		
+		MckpReturn res = new MckpReturn(picks, i);
 
 		return res;
 	}
