@@ -57,12 +57,28 @@ public class MakeBestChoiceLogic {
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
 		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
 		String picks[][] = mckpExactlyone.getPicks();
+		int item = n, size = budgetAmt;
 		if (picks[n][budgetAmt].equals("-1")) {
 			MckpAtmostOne mckp = new MckpAtmostOne();
 			MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
-			System.out.println(mckpAtmostOne + " : " + mckpExactlyone);
+			picks = mckpAtmostOne.getPicks();
+			if (!picks[n][budgetAmt].equals("-1")) {
+				while (item > 0) {
+					if (picks[item][size] != null && !picks[item][size].equals("-1")) {
+						int row = Integer.valueOf(picks[item][size].split(",")[0]);
+						int column = Integer.valueOf(picks[item][size].split(",")[1]);
+						System.out.println(picks[item][size]);
+						item--;
+						size -= wt[row][column];
+					} else {
+						break;
+					}
+				}
+				System.out.println("Amount to be spent : " + mckpExactlyone.getAmountSpent());
+			} else {
+				System.out.println("Your r cheap dude! Live a little will ya!!!");
+			}
 		} else {
-			int item = n, size = budgetAmt;
 			while (item > 0) {
 				if (picks[item][size] != null && !picks[item][size].equals("-1")) {
 					int row = Integer.valueOf(picks[item][size].split(",")[0]);

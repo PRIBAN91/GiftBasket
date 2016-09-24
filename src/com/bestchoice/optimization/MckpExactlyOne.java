@@ -60,22 +60,6 @@ public class MckpExactlyOne {
 			mini = Integer.MAX_VALUE;
 		}
 
-		/*int item = n, size = W;
-
-		// Loop till there are items
-		while (item > 0) {
-			// If an item is picked, print it and go to [item-1] set
-			if (picks[item][size] != null && !picks[item][size].equals("-1")) {
-				int row = Integer.valueOf(picks[item][size].split(",")[0]);
-				int column = Integer.valueOf(picks[item][size].split(",")[1]);
-				System.out.println(picks[item][size]);
-				item--;
-				size -= wt1[row][column];
-			} else {
-				break;
-			}
-		}*/
-
 		int amountTobeSpent = K[n][W];
 		for (i = 0; i <= W; i++)
 			if (K[n][i] == amountTobeSpent)
