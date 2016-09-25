@@ -4,11 +4,13 @@ public class PriceReview {
 
 	private double amount;
 	private double review;
+	private String prodName;
 
-	public PriceReview(double amount, double review) {
+	public PriceReview(double amount, double review, String prodName) {
 		super();
 		this.amount = amount;
 		this.review = review;
+		this.prodName = prodName;
 	}
 
 	/**
@@ -39,6 +41,14 @@ public class PriceReview {
 	 */
 	public void setReview(double review) {
 		this.review = review;
+	}
+
+	public String getProdName() {
+		return prodName;
+	}
+
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
 	}
 
 }
