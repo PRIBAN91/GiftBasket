@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,7 +45,10 @@ public class MakeBestChoice extends HttpServlet {
 		}
 		System.out.println("Budget Amount : " + budgetAmt);
 		MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
-		luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
+		String result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
+		request.setAttribute("Result", result);
+		RequestDispatcher rs = request.getRequestDispatcher("Result.jsp");
+		rs.forward(request, response);
 	}
 
 	/**

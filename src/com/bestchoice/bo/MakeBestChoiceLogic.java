@@ -13,17 +13,16 @@ public class MakeBestChoiceLogic {
 
 	private int NormFactor = 10;
 
-	public void getBestChoiceList(List<String> desiredProducts, int budgetAmt) {
+	public String getBestChoiceList(List<String> desiredProducts, int budgetAmt) {
 		Loadlist load = new Loadlist();
 		List<Products> list = load.fetchProducts(desiredProducts);
-		separateProducts(list, budgetAmt);
-		System.out.println(list);
-		// MckpExactlyOne mckp = new MckpExactlyOne();
-		// int n = list.size();
-
+		String result = separateProducts(list, budgetAmt);
+		System.out.println(result);
+		return result;
 	}
 
-	public void separateProducts(List<Products> list, int budgetAmt) {
+	public String separateProducts(List<Products> list, int budgetAmt) {
+
 		int sz = list.size();
 		LinkedHashMap<String, ArrayList<PriceReview>> lhm = new LinkedHashMap<>();
 		for (Products prods : list) {
@@ -53,7 +52,14 @@ public class MakeBestChoiceLogic {
 			}
 			i++;
 		}
+		StringBuilder sb = new StringBuilder(determineResult(budgetAmt, marr, wt, val, n, lhm));
+		return sb.toString();
+	}
 
+	public StringBuilder determineResult(int budgetAmt, int marr[], int wt[][], int val[][], int n,
+			LinkedHashMap<String, ArrayList<PriceReview>> lhm) {
+
+		StringBuilder sb = new StringBuilder();
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
 		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
 		String picks[][] = mckpExactlyone.getPicks();
@@ -77,8 +83,15 @@ public class MakeBestChoiceLogic {
 					}
 				}
 				System.out.println("Amount to be spent : " + mckpAtmostOne.getAmountSpent());
+				sb.append("Congratulations! Your GiftBasket is ready. <br> <br>");
+				sb.append("It seems taking at least one item from each category you selected")
+						.append("for your GiftBasket will exceed your budget. <br>")
+						.append("However we have determined one item from few of the categories you have chosen,")
+						.append("which will produce the best GiftBasket. <br> <br>");
+				sb.append("Amount to be spent : " + mckpAtmostOne.getAmountSpent() + "<br> <br>");
 			} else {
 				System.out.println("Your r cheap dude! Live a little, will ya!!!");
+				sb.append("Your r cheap dude! Live a little, will ya!!!");
 			}
 		} else {
 			while (item > 0) {
@@ -94,24 +107,29 @@ public class MakeBestChoiceLogic {
 				}
 			}
 			System.out.println("Amount to be spent : " + mckpExactlyone.getAmountSpent());
+			sb.append("Congratulations! Your GiftBasket is ready. <br> <br>");
+			sb.append("Amount to be spent : " + mckpExactlyone.getAmountSpent() + "<br> <br>");
 		}
 		Collections.reverse(pickList);
 
-		i = 0;
-		int row = 0, col = 0;
+		int i = 0, row = 0, col = 0;
 		Iterator<Entry<String, ArrayList<PriceReview>>> it = lhm.entrySet().iterator();
 		for (String s : pickList) {
 			String sarr[] = s.split(",");
 			row = Integer.parseInt(sarr[0]);
 			col = Integer.parseInt(sarr[1]);
 			while (i < row) {
-				System.out.println(it.next().getKey() + "  ::  Nothing to be selected");
+				// System.out.println(it.next().getKey() + " :: Nothing to be
+				// selected");
+				sb.append(it.next().getKey() + "  ::  Nothing to be selected <br>");
 				i++;
 			}
 			Map.Entry<String, ArrayList<PriceReview>> entry = (Map.Entry<String, ArrayList<PriceReview>>) it.next();
 			System.out.println(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName());
+			sb.append(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName() + "<br>");
 			i++;
 		}
+		return sb;
 	}
 
 }
