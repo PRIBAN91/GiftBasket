@@ -121,7 +121,7 @@ public class MakeBestChoiceLogic {
 			while (i < row) {
 				// System.out.println(it.next().getKey() + " :: Nothing to be
 				// selected");
-				sb.append(it.next().getKey() + "  ::  Nothing to be selected <br>");
+				sb.append(it.next().getKey() + "  ::  Nothing could be selected <br>");
 				i++;
 			}
 			Map.Entry<String, ArrayList<PriceReview>> entry = (Map.Entry<String, ArrayList<PriceReview>>) it.next();
