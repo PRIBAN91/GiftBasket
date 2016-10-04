@@ -65,12 +65,12 @@ public class MakeBestChoiceLogic {
 		String picks[][] = mckpExactlyone.getPicks();
 		int item = n, size = budgetAmt;
 		ArrayList<String> pickList = new ArrayList<>();
-		if (picks[n][budgetAmt].equals("-1")) {
+		if (picks[item][size] == null || picks[n][budgetAmt].equals("-1")) {
 			MckpAtmostOne mckp = new MckpAtmostOne();
 			MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
 			picks = mckpAtmostOne.getPicks();
-			if (!picks[n][budgetAmt].equals("-1")) {
-				while (item > 0) {
+			if (mckpAtmostOne.getAmountSpent() != 0) {
+				while (item > 0 && size > 0) {
 					if (!picks[item][size].equals("-1")) {
 						int row = Integer.valueOf(picks[item][size].split(",")[0]);
 						int column = Integer.valueOf(picks[item][size].split(",")[1]);
@@ -83,18 +83,19 @@ public class MakeBestChoiceLogic {
 					}
 				}
 				System.out.println("Amount to be spent : " + mckpAtmostOne.getAmountSpent());
-				sb.append("Congratulations! Your GiftBasket is ready. <br> <br>");
-				sb.append("It seems taking at least one item from each category you selected")
-						.append("for your GiftBasket will exceed your budget. <br>")
-						.append("However we have determined one item from few of the categories you have chosen,")
-						.append("which will produce the best GiftBasket. <br> <br>");
+				sb.append("Congratulations! Your Gift Basket is ready. <br> <br>");
+				sb.append("It seems that taking at least one item from each category you selected")
+						.append(" for your GiftBasket will exceed your budget. <br>")
+						.append("However we have determined one item from few of the categories ")
+						.append("you have chosen, which will produce the best GiftBasket. <br> <br>");
 				sb.append("Amount to be spent : " + mckpAtmostOne.getAmountSpent() + "<br> <br>");
 			} else {
 				System.out.println("Your r cheap dude! Live a little, will ya!!!");
-				sb.append("Your r cheap dude! Live a little, will ya!!!");
+				sb.append("Sorry, we could not determine your Gift Basket for you. The budget seems to be very low."
+						+ "<br> Please increase the budget accordingly for a Gift Basket.");
 			}
 		} else {
-			while (item > 0) {
+			while (item > 0 && size > 0) {
 				if (picks[item][size] != null && !picks[item][size].equals("-1")) {
 					int row = Integer.valueOf(picks[item][size].split(",")[0]);
 					int column = Integer.valueOf(picks[item][size].split(",")[1]);
@@ -107,7 +108,7 @@ public class MakeBestChoiceLogic {
 				}
 			}
 			System.out.println("Amount to be spent : " + mckpExactlyone.getAmountSpent());
-			sb.append("Congratulations! Your GiftBasket is ready. <br> <br>");
+			sb.append("Congratulations! Your Gift Basket is ready. <br> <br>");
 			sb.append("Amount to be spent : " + mckpExactlyone.getAmountSpent() + "<br> <br>");
 		}
 		Collections.reverse(pickList);

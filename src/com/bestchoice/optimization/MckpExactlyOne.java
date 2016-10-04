@@ -56,7 +56,8 @@ public class MckpExactlyOne {
 					picks[i][w] = i - 1 + "," + maxPos;
 				}
 			}
-			j += mini;
+			if (mini != Integer.MAX_VALUE)
+				j += mini;
 			mini = Integer.MAX_VALUE;
 		}
 
