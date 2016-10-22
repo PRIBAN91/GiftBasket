@@ -20,7 +20,6 @@ import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionIdListener;
 import javax.servlet.http.HttpSessionListener;
 import com.bestchoice.util.HibernateUtil;
-import com.bestchoice.util.Loadlist;
 
 /**
  * Application Lifecycle Listener implementation class Listener
@@ -109,8 +108,8 @@ public class Listener implements ServletContextListener, ServletContextAttribute
 		try {
 			HibernateUtil.buildSessionFactory();
 			System.out.println("Before loading list");
-			//Loadlist list = new Loadlist();
-			//list.loadWordList();
+			// Loadlist list = new Loadlist();
+			// list.loadWordList();
 			System.out.println("Succesfully loaded list");
 		} catch (Exception e) {
 			e.printStackTrace();

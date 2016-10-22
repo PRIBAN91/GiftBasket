@@ -17,7 +17,6 @@ public class MakeBestChoiceLogic {
 		Loadlist load = new Loadlist();
 		List<Products> list = load.fetchProducts(desiredProducts);
 		String result = separateProducts(list, budgetAmt);
-		System.out.println(result);
 		return result;
 	}
 
@@ -82,17 +81,16 @@ public class MakeBestChoiceLogic {
 						item--;
 					}
 				}
-				System.out.println("Amount to be spent : " + mckpAtmostOne.getAmountSpent());
-				sb.append("Congratulations! Your Gift Basket is ready. <br> <br>");
+				sb.append("<br> Congratulations! Your Gift Basket is ready. <br> <br>");
 				sb.append("It seems that taking at least one item from each category you selected")
 						.append(" for your GiftBasket will exceed your budget. <br>")
 						.append("However we have determined one item from few of the categories ")
 						.append("you have chosen, which will produce the best GiftBasket. <br> <br>");
 				sb.append("Amount to be spent : " + mckpAtmostOne.getAmountSpent() + "<br> <br>");
 			} else {
-				System.out.println("Your r cheap dude! Live a little, will ya!!!");
-				sb.append("Sorry, we could not determine your Gift Basket for you. The budget seems to be very low."
-						+ "<br> Please increase the budget accordingly for a Gift Basket.");
+				sb.append(
+						"<br> Sorry, we could not determine your Gift Basket for you. The budget seems to be very low."
+								+ "<br> Please increase the budget accordingly for us to prepare a Gift Basket.");
 			}
 		} else {
 			while (item > 0 && size > 0) {
@@ -107,8 +105,7 @@ public class MakeBestChoiceLogic {
 					break;
 				}
 			}
-			System.out.println("Amount to be spent : " + mckpExactlyone.getAmountSpent());
-			sb.append("Congratulations! Your Gift Basket is ready. <br> <br>");
+			sb.append("<br> Congratulations! Your Gift Basket is ready. <br> <br>");
 			sb.append("Amount to be spent : " + mckpExactlyone.getAmountSpent() + "<br> <br>");
 		}
 		Collections.reverse(pickList);
@@ -120,8 +117,6 @@ public class MakeBestChoiceLogic {
 			row = Integer.parseInt(sarr[0]);
 			col = Integer.parseInt(sarr[1]);
 			while (i < row) {
-				// System.out.println(it.next().getKey() + " :: Nothing to be
-				// selected");
 				sb.append(it.next().getKey() + "  ::  Nothing could be selected <br>");
 				i++;
 			}

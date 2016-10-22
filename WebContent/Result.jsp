@@ -15,5 +15,14 @@
 		%>
 	</h3>
 
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div align="center">
+		<a href="BasicServlet"> Click here to go back to the index page.</a>
+	</div>
+
 </body>
 </html>
