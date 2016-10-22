@@ -11,12 +11,16 @@
 		var prodList = document.forms["myForm"]["products"].value;
 		var z = document.forms["myForm"]["budget"].value;
 		var regex = /^\d+(?:\.\d{0,2})$/;
-		if (!prodList.match(/\S/) && !z.match(/\S/)) {
-			alert("Please chose the Products you want to make best choice from and your Budget Amount to proceed!");
+		if (!prodList.match(/\S/)) {
+			alert("Please chose at least one product from the list to proceed.");
+			return false;
+		}
+		if (!z.match(/\S/)) {
+			alert("Please enter Budget Amount to proceed.");
 			return false;
 		}
 		if (!regex.test(z)) {
-			alert("Please enter curreny characters only for Budget Amount! (Allowed input:0-9 and . only)");
+			alert("Please enter curreny characters only for Budget Amount. Allowed input are [0-9] and . only");
 			return false;
 		}
 	}
@@ -40,9 +44,6 @@
 				<%
 					}
 				%>
-				<!-- <option value="saab">Saab</option>
-				<option value="opel">Opel</option>
-				<option value="audi">Audi</option> -->
 			</select> <br> <br> Enter Budget : <input type="text" name="budget"><br>
 			<br> <input type="submit" onclick="return validateForm()">
 		</form>

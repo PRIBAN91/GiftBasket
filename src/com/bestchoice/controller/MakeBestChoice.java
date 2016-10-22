@@ -37,15 +37,14 @@ public class MakeBestChoice extends HttpServlet {
 		String arr[] = request.getParameterValues("products");
 		String budget = request.getParameter("budget");
 		double budgetAmt = Double.parseDouble(budget);
+		String result = "";
 		List<String> desiredProductList = new ArrayList<>();
 		if (arr != null) {
 			desiredProductList = Arrays.asList(arr);
-			for (String car : arr)
-				System.out.println(car);
+			System.out.println("Budget Amount : " + budgetAmt);
+			MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
+			result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
 		}
-		System.out.println("Budget Amount : " + budgetAmt);
-		MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
-		String result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
 		request.setAttribute("Result", result);
 		RequestDispatcher rs = request.getRequestDispatcher("Result.jsp");
 		rs.forward(request, response);
