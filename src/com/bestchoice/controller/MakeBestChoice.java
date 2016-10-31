@@ -39,11 +39,16 @@ public class MakeBestChoice extends HttpServlet {
 		double budgetAmt = Double.parseDouble(budget);
 		String result = "";
 		List<String> desiredProductList = new ArrayList<>();
-		if (arr != null) {
-			desiredProductList = Arrays.asList(arr);
-			System.out.println("Budget Amount : " + budgetAmt);
-			MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
-			result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
+		try {
+			if (arr != null) {
+				desiredProductList = Arrays.asList(arr);
+				System.out.println("Budget Amount : " + budgetAmt);
+				MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
+				result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
+			}
+		} catch (Exception e) {
+			System.out.println("Exception occurred in main logic. ");
+			e.printStackTrace();
 		}
 		request.setAttribute("Result", result);
 		RequestDispatcher rs = request.getRequestDispatcher("Result.jsp");

@@ -106,11 +106,8 @@ public class Listener implements ServletContextListener, ServletContextAttribute
 	public void contextInitialized(ServletContextEvent arg0) {
 		System.out.println("Hi there, just getting started up. This may take some time!");
 		try {
+			// Initializing Hibernate session factory
 			HibernateUtil.buildSessionFactory();
-			System.out.println("Before loading list");
-			// Loadlist list = new Loadlist();
-			// list.loadWordList();
-			System.out.println("Succesfully loaded list");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -32,13 +32,13 @@ public class BasicServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		System.out.println("In basic servlet");
-		// PrintWriter out = response.getWriter();
+		// Fetching product list from DB
 		FetchProductLogic fetch = new FetchProductLogic();
 		List<String> prodList = new ArrayList<>();
 		prodList = fetch.extractProductList();
-		System.out.println("Product List : " + prodList);
 		request.setAttribute("ProductList", prodList);
+		// Forwarding the list from table to home page (this is for demo purpose
+		// only)
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

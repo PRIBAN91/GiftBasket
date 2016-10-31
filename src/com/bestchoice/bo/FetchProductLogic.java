@@ -6,6 +6,11 @@ import com.bestchoice.util.Loadlist;
 
 public class FetchProductLogic {
 
+	/**
+	 * @author PRITAM. Created for fetching raw product list from table during
+	 *         home page load
+	 *
+	 */
 	public List<String> extractProductList() {
 		List<Products> productList = new ArrayList<>();
 		Loadlist load = new Loadlist();
@@ -14,6 +19,11 @@ public class FetchProductLogic {
 		return prodNameList;
 	}
 
+	/**
+	 * @author PRITAM. Created for fetching product list from table according to
+	 *         user's choice
+	 *
+	 */
 	public List<String> getProductList(List<String> desiredProducts) {
 		List<Products> productList = new ArrayList<>();
 		Loadlist load = new Loadlist();
@@ -22,6 +32,10 @@ public class FetchProductLogic {
 		return prodNameList;
 	}
 
+	/**
+	 * @author PRITAM. Created for categorizing products based on their types
+	 *
+	 */
 	public List<String> separateProducts(List<Products> productList) {
 		Set<String> prodSet = new TreeSet<>();
 		for (Products product : productList) {

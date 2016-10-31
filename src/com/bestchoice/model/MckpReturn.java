@@ -1,5 +1,9 @@
 package com.bestchoice.model;
 
+/*
+ * Model Class for returning MCKP calculated values
+ */
+
 public class MckpReturn {
 
 	private String picks[][];

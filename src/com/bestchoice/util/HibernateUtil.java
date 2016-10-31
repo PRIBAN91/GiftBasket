@@ -14,18 +14,12 @@ public class HibernateUtil {
 	public static SessionFactory buildSessionFactory() {
 		try {
 
-			System.out.println("Before config load");
-
+			// Loading configuration from Hibernate.properties file
 			Configuration configuration = new Configuration();
 
-			// Create properties file
 			Properties properties = new Properties();
 
-			System.out.println("Before property load");
-
 			properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream("Hibernate.properties"));
-
-			System.out.println("After property load");
 
 			configuration.setProperties(properties);
 
