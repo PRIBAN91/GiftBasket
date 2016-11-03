@@ -48,6 +48,14 @@
 			<br> <input type="submit" onclick="return validateForm()">
 		</form>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<a href="CustomerReview"> Click here to provide feedback for
+			products.</a>
+	</div>
 
 </body>
 </html>
