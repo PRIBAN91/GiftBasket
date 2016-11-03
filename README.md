@@ -1,4 +1,12 @@
 # GiftBasket
 Makes best choice for users from multiple products with multiple subcategories each.
 
-Work in progress. Will update the ReadMe and the Wiki once completed.
+Imagine you went to a Department Store on your way back from office. You have a grocery list in your hand or rather in your smartphone. Now you have multiple sub-category products under each and almost all the products you need to buy. Say, you have to buy toothpaste, and it has brands like, Colgate, Sensodyne, Close-Ups, etc. Like that each product category in the store will have multiple branded products with a different price and quality. Now, of course you want to buy the best quality goods/products for yourself and/your family. Unfortunately though, you have a budget to keep. For simplicity, let's assume that you have a fixed budget and you want one of each goods/products in your list. Now you have your calculator open in your smartphone and you are constantly calculating and thinking to yourself, "What if I buy Colgate Total (which is a tad bit expensive) and cut down the cost on instant noodle? Will it be still in my budget? Is the cheaper instant noodle product good enough for my family? What about the cookies I have to buy next? How are they priced?", and so on and so forth. Frustrating, right? You probably want to have a cool beer, set back in your nice little sofa, relax and tune in to your big screen TV. Trust me, I would feel the same in your position.
+
+This API makes the best choice for your product list according to the customer reviews. And, don’t worry, it will make that list within your budget amount only. Now it may happen that the crappy store has too many high priced products and they don’t value their customers. Then, in that case, this API skips a few items, yet determines the product list of highest quality that you can get within you budget. You can always keep increasing or decreasing your budget and determining the best choice for your grocery list. And don’t worry about wait time. The algorithms in place in this API are pretty smart and will take only take split seconds or so to determine your result. 
+
+The main dependency however is on the Customer Review of the products. If they provide their views and rate the items diligently, you need not worry. You will have the best products your money can get. 
+
+The codes are pretty self-explanatory. There are lots of inline comments as well. It would be easy enough for any techie with a Java knowledge to implement and/or integrate this API with an existing E-commerce or other systems.
+
+I am still working on a few more things. Though the basic API is ready with it's demo page and result page. Will update more later.
