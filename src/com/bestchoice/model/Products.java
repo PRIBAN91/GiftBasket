@@ -21,6 +21,10 @@ public class Products {
 	private double price;
 	@Column(name = "ReviewValue")
 	private double reviewValue;
+	@Column(name = "ReviewTotal")
+	private long reviewTotal;
+	@Column(name = "ReviewCount")
+	private long reviewCount;
 
 	/**
 	 * @return the sequenceNum
@@ -97,6 +101,36 @@ public class Products {
 		this.reviewValue = reviewValue;
 	}
 
+	/**
+	 * @return the reviewTotal
+	 */
+	public long getReviewTotal() {
+		return reviewTotal;
+	}
+
+	/**
+	 * @param reviewTotal
+	 *            the reviewTotal to set
+	 */
+	public void setReviewTotal(long reviewTotal) {
+		this.reviewTotal = reviewTotal;
+	}
+
+	/**
+	 * @return the reviewCount
+	 */
+	public long getReviewCount() {
+		return reviewCount;
+	}
+
+	/**
+	 * @param reviewCount
+	 *            the reviewCount to set
+	 */
+	public void setReviewCount(long reviewCount) {
+		this.reviewCount = reviewCount;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -136,8 +170,9 @@ public class Products {
 	 */
 	@Override
 	public String toString() {
-		return "ProductList [sequenceNum=" + sequenceNum + ", productName=" + productName + ", subProductName="
-				+ subProductName + ", price=" + price + ", reviewValue=" + reviewValue + "]";
+		return "Products [sequenceNum=" + sequenceNum + ", productName=" + productName + ", subProductName="
+				+ subProductName + ", price=" + price + ", reviewValue=" + reviewValue + ", reviewTotal=" + reviewTotal
+				+ ", reviewCount=" + reviewCount + "]";
 	}
 
 }
