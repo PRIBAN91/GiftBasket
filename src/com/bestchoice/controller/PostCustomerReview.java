@@ -1,27 +1,23 @@
 package com.bestchoice.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.bestchoice.model.Products;
-import com.bestchoice.util.Loadlist;
 
 /**
- * Servlet implementation class CustomerReview
+ * Servlet implementation class PostCustomerReview
  */
-@WebServlet("/CustomerReview")
-public class CustomerReview extends HttpServlet {
+@WebServlet("/PostCustomerReview")
+public class PostCustomerReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CustomerReview() {
+	public PostCustomerReview() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,15 +28,8 @@ public class CustomerReview extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		response.setContentType("text/html");
-		// Fetching product list from DB
-		List<Products> prodList = new ArrayList<>();
-		Loadlist load = new Loadlist();
-		prodList = load.loadProductList();
-		request.setAttribute("ProductList", prodList);
-		// Forwarding the list from table to home page (this is for demo purpose
-		// only)
-		request.getRequestDispatcher("Review.jsp").forward(request, response);
+		System.out.println("In customer review");
+		request.getRequestDispatcher("CustomerReview").forward(request, response);
 	}
 
 	/**

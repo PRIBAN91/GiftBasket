@@ -20,7 +20,8 @@
 			return false;
 		}
 		if (!regex.test(z)) {
-			alert("Please enter curreny characters only for Budget Amount. Allowed input are [0-9] and . only");
+			alert("Please enter Curreny characters only for Budget Amount. "
+					+ "Allowed input are [0-9] and . only with upto 2 decimal places.");
 			return false;
 		}
 	}
