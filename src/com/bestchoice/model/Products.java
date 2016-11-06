@@ -22,7 +22,7 @@ public class Products {
 	@Column(name = "ReviewValue")
 	private double reviewValue;
 	@Column(name = "ReviewTotal")
-	private long reviewTotal;
+	private double reviewTotal;
 	@Column(name = "ReviewCount")
 	private long reviewCount;
 
@@ -104,7 +104,7 @@ public class Products {
 	/**
 	 * @return the reviewTotal
 	 */
-	public long getReviewTotal() {
+	public double getReviewTotal() {
 		return reviewTotal;
 	}
 
@@ -112,7 +112,7 @@ public class Products {
 	 * @param reviewTotal
 	 *            the reviewTotal to set
 	 */
-	public void setReviewTotal(long reviewTotal) {
+	public void setReviewTotal(double reviewTotal) {
 		this.reviewTotal = reviewTotal;
 	}
 

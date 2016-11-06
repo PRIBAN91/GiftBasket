@@ -11,7 +11,7 @@
 	function validateForm() {
 		var prodList = document.forms["myForm"]["products"].value;
 		var z = document.forms["myForm"]["rating"].value;
-		var regex = /^\d+(?:\.\d{0,2})$/;
+		var regex = /^\d+(?:\.\d{0,1})$/;
 		if (!prodList.match(/\S/)) {
 			alert("Please chose at least one product from the list to proceed with review.");
 			return false;
@@ -21,12 +21,11 @@
 			return false;
 		}
 		if (z > 10) {
-			alert("Please enter rating below 10 to proceed.");
+			alert("Please enter rating below or equal to 10 to proceed.");
 			return false;
 		}
 		if (!regex.test(z)) {
-			alert("Please enter Curreny characters only for Budget Amount. "
-					+ "Allowed input are [0-9] and . only with upto 2 decimal places.");
+			alert("Please enter rating in proper format.");
 			return false;
 		}
 	}
@@ -36,9 +35,9 @@
 	<h2 align="center">Put your reviews and ratings here</h2>
 	<br>
 	<%
-		System.out.print("Before list fetch");
 		@SuppressWarnings("unchecked")
 		List<Products> prodList = (List<Products>) request.getAttribute("ProductList");
+		String msg = (String) request.getAttribute("Message");
 	%>
 	<div align="center">
 		<form method="Post" action="PostCustomerReview" name="myForm">
@@ -51,13 +50,22 @@
 					}
 				%>
 			</select> <br> <br> Enter Rating (Out of 10) : <input type="text"
-				name="rating"> (Up to 2 decimal places allowed) <br>
+				name="rating"> (Up to 1 decimal places allowed) <br> <br>
+			<input type="submit" onclick="return validateForm()">
 		</form>
-		<br> <input type="submit" onclick="return validateForm()">
 	</div>
 
 	<br>
 	<br>
+	<%
+		if (msg != null) {
+	%>
+	<div align="center">
+		<h3 style="color: red;"><%=msg%></h3>
+	</div>
+	<%
+		}
+	%>
 	<br>
 	<br>
 

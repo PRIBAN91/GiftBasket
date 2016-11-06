@@ -31,7 +31,6 @@
 	<h2 align="center">Welcome to the concept of Gift Basket!</h2>
 	<br>
 	<%
-		System.out.print("Before list fetch");
 		@SuppressWarnings("unchecked")
 		List<String> prodList = (List<String>) request.getAttribute("ProductList");
 	%>
