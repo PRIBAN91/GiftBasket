@@ -1,10 +1,9 @@
 package com.bestchoice.util;
 
-import java.text.DecimalFormat;
-
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import com.bestchoice.model.Products;
+import java.text.DecimalFormat;
 
 public class PostRatings {
 
