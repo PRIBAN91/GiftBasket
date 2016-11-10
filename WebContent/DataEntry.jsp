@@ -7,6 +7,9 @@
 <title>Store Products Entry Screen</title>
 </head>
 <body>
-	<h2 align="center">Enter your store's product accordingly.</h2>
+	<h2 align="center">Enter your store's product details accordingly.</h2>
+	
+	<form action=""></form>
+	
 </body>
 </html>
