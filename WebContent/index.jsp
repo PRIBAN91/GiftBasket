@@ -56,6 +56,14 @@
 		<a href="CustomerReview"> Click here to provide feedback for
 			products.</a>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<a href="ProductEntry"> Click here to input new products in the
+			system.</a>
+	</div>
 
 </body>
 </html>

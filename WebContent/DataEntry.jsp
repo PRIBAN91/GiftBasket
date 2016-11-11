@@ -8,8 +8,8 @@
 </head>
 <body>
 	<h2 align="center">Enter your store's product details accordingly.</h2>
-	
+
 	<form action=""></form>
-	
+
 </body>
 </html>
