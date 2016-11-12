@@ -1,3 +1,4 @@
+<%@page import="com.bestchoice.model.Products"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -5,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Make your choice</title>
+<title>Simple Basket</title>
 <script type="text/javascript">
 	function validateForm() {
 		var prodList = document.forms["myForm"]["products"].value;
@@ -28,49 +29,29 @@
 </script>
 </head>
 <body>
-	<h2 align="center">Welcome to the concept of Gift Basket!</h2>
+
+	<h2 align="center">Select best products from a single product
+		category.</h2>
 	<br>
 	<%
 		@SuppressWarnings("unchecked")
 		List<String> prodList = (List<String>) request.getAttribute("ProductList");
+		//String msg = (String) request.getAttribute("Message");
 	%>
 	<div align="center">
-		<form method="Post" action="MakeBestChoice" name="myForm">
-			<select name="products" multiple>
+		<form method="Post" action="PostCustomerReview" name="myForm">
+			<select name="products">
 				<%
-					for (String prodName : prodList) {
+					for (String prods : prodList) {
 				%>
-				<option value="<%=prodName%>"><%=prodName%></option>
+				<option value="<%=prods%>"><%=prods%></option>
 				<%
 					}
 				%>
-			</select> <br> <br> Enter Budget : <input type="text" name="budget"><br>
-			<br> <input type="submit" onclick="return validateForm()">
+			</select> <br> <br> Enter budget : <input type="text" name="budget">
+			<br> <br> <input type="submit"
+				onclick="return validateForm()">
 		</form>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div align="center">
-		<a href="SimpleBasket"> Click here to prepare a basket of single
-			product and multiple sub items.</a>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div align="center">
-		<a href="CustomerReview"> Click here to provide feedback for
-			products.</a>
-	</div>
-	<br>
-	<br>
-	<br>
-	<br>
-	<div align="center">
-		<a href="ProductEntry"> Click here to input new products in the
-			system.</a>
 	</div>
 
 </body>
