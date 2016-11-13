@@ -6,20 +6,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.bestchoice.util.PostRatings;
+import com.bestchoice.bo.MakeSimpBasketLogic;
 
 /**
- * Servlet implementation class PostCustomerReview
+ * Servlet implementation class PrepareSimpBasket
  */
-@WebServlet("/PostCustomerReview")
-public class PostCustomerReview extends HttpServlet {
+@WebServlet("/PrepareSimpBasket")
+public class PrepareSimpBasket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public PostCustomerReview() {
+	public PrepareSimpBasket() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,23 +31,11 @@ public class PostCustomerReview extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		System.out.println("In customer review");
-		String subProductName = request.getParameter("products");
-		String rating = request.getParameter("rating");
-		System.out.println(subProductName);
-		PostRatings postRating = new PostRatings();
-		boolean flag = true;
-		try {
-			postRating.postCustomerRating(subProductName, Double.valueOf(rating));
-		} catch (Exception e) {
-			flag = false;
-		}
-		if (flag) {
-			request.setAttribute("Message", "Your rating has been successfully posted!");
-		} else {
-			request.setAttribute("Message",
-					"There seems to some trouble in posting your rating. Please try after sometimes.");
-		}
-		request.getRequestDispatcher("CustomerReview").forward(request, response);
+		String prodName = request.getParameter("products");
+		String budgetAmt = request.getParameter("budget");
+		double budget = Double.parseDouble(budgetAmt);
+		MakeSimpBasketLogic makeSimpBasket = new MakeSimpBasketLogic();
+		makeSimpBasket.prepSimpleBasket(prodName, (int) budget);
 	}
 
 	/**

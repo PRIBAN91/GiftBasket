@@ -12,7 +12,7 @@ public class PostRatings {
 		// session object
 		try {
 			Session session = HibernateUtil.getSessionFactory().openSession();
-			// Simple HQL for fetching list
+			// Simple Criteria for fetching list
 			Criteria cr = session.createCriteria(Products.class)
 					.add(Restrictions.eq(("subProductName"), subProductName));
 			Products prod = (Products) cr.uniqueResult();

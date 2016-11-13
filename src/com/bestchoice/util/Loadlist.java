@@ -3,6 +3,7 @@ package com.bestchoice.util;
 import java.util.*;
 import org.hibernate.*;
 import org.hibernate.criterion.Projections;
+import org.hibernate.criterion.Restrictions;
 
 import com.bestchoice.model.Products;
 
@@ -61,6 +62,17 @@ public class Loadlist {
 		List<String> prodNameList = critiera.list();
 		session.close();
 		return prodNameList;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Products> fetchSingleProduct(String prodName) {
+		// Get session factory object initialized in Listener.java and create
+		// session object
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		Criteria criteria = session.createCriteria(Products.class).add(Restrictions.eq(("productName"), prodName));
+		List<Products> prodList = criteria.list();
+		session.close();
+		return prodList;
 	}
 
 }

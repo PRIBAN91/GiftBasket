@@ -39,7 +39,7 @@
 		//String msg = (String) request.getAttribute("Message");
 	%>
 	<div align="center">
-		<form method="Post" action="PostCustomerReview" name="myForm">
+		<form method="Post" action="PrepareSimpBasket" name="myForm">
 			<select name="products">
 				<%
 					for (String prods : prodList) {
@@ -52,6 +52,15 @@
 			<br> <br> <input type="submit"
 				onclick="return validateForm()">
 		</form>
+	</div>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div align="center">
+		<a href="BasicServlet"> Click here to go back to the index page.</a>
 	</div>
 
 </body>

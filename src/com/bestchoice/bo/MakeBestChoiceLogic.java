@@ -21,7 +21,6 @@ public class MakeBestChoiceLogic {
 	}
 
 	public String separateProducts(List<Products> list, int budgetAmt) {
-
 		int sz = list.size();
 		LinkedHashMap<String, ArrayList<PriceReview>> lhm = new LinkedHashMap<>();
 		for (Products prods : list) {
@@ -36,7 +35,6 @@ public class MakeBestChoiceLogic {
 				lhm.put(prodName, ar);
 			}
 		}
-
 		int n = lhm.size(), i = 0, m;
 		int wt[][] = new int[n][sz - n + 1];
 		int val[][] = new int[n][sz - n + 1];
@@ -46,7 +44,7 @@ public class MakeBestChoiceLogic {
 			m = arr.size();
 			marr[i] = m;
 			for (int j = 0; j < m; j++) {
-				val[i][j] = (int) (arr.get(j).getReview() * NormFactor);
+				val[i][j] = (int) Math.round(arr.get(j).getReview() * NormFactor);
 				wt[i][j] = (int) Math.round(arr.get(j).getAmount());
 			}
 			i++;
@@ -57,7 +55,6 @@ public class MakeBestChoiceLogic {
 
 	public StringBuilder determineResult(int budgetAmt, int marr[], int wt[][], int val[][], int n,
 			LinkedHashMap<String, ArrayList<PriceReview>> lhm) {
-
 		StringBuilder sb = new StringBuilder();
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
 		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
@@ -109,7 +106,6 @@ public class MakeBestChoiceLogic {
 			sb.append("Amount to be spent : " + mckpExactlyone.getAmountSpent() + "<br> <br>");
 		}
 		Collections.reverse(pickList);
-
 		int i = 0, row = 0, col = 0;
 		Iterator<Entry<String, ArrayList<PriceReview>>> it = lhm.entrySet().iterator();
 		for (String s : pickList) {
