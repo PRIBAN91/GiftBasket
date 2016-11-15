@@ -20,7 +20,8 @@
 	<br>
 
 	<div align="center">
-		<a href="BasicServlet"> Click here to go back to the Simple Basket page.</a>
+		<a href="SimpleBasket"> Click here to go back to the Simple Basket
+			page.</a>
 	</div>
 </body>
 </html>

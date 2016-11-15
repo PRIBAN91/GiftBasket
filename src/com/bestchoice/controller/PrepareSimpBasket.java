@@ -1,6 +1,8 @@
 package com.bestchoice.controller;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +37,10 @@ public class PrepareSimpBasket extends HttpServlet {
 		String budgetAmt = request.getParameter("budget");
 		double budget = Double.parseDouble(budgetAmt);
 		MakeSimpBasketLogic makeSimpBasket = new MakeSimpBasketLogic();
-		makeSimpBasket.prepSimpleBasket(prodName, (int) budget);
+		String result = makeSimpBasket.prepSimpleBasket(prodName, (int) budget);
+		request.setAttribute("Result", result);
+		RequestDispatcher rs = request.getRequestDispatcher("SimpbasketResult.jsp");
+		rs.forward(request, response);
 	}
 
 	/**

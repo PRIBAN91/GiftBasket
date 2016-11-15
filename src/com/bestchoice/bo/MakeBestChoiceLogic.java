@@ -85,9 +85,9 @@ public class MakeBestChoiceLogic {
 						.append("you have chosen, which will produce the best GiftBasket. <br> <br>");
 				sb.append("Amount to be spent : " + mckpAtmostOne.getAmountSpent() + "<br> <br>");
 			} else {
-				sb.append(
-						"<br> Sorry, we could not determine your Gift Basket for you. The budget seems to be very low."
-								+ "<br> Please increase the budget accordingly for us to prepare a Gift Basket.");
+				sb.append("<br><br> Sorry, we could not determine your Gift Basket for you. "
+						+ "<br><br>The budget seems to be very low. <br><br>"
+						+ " Please increase the budget accordingly for us to prepare a Gift Basket.");
 			}
 		} else {
 			while (item > 0 && size > 0) {

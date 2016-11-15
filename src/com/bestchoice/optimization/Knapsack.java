@@ -26,17 +26,6 @@ public class Knapsack {
 			}
 		}
 
-		int item = n, size = W;
-		while (item > 0) {
-			if (picks[item][size] == 1) {
-				System.out.println(item);
-				item--;
-				size -= wt[item];
-			} else {
-				item--;
-			}
-		}
-
 		int amountTobeSpent = K[n][W];
 		for (i = 0; i <= W; i++)
 			if (K[n][i] == amountTobeSpent)
