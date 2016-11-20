@@ -10,6 +10,13 @@
 	<h2 align="center">Enter your store's product details accordingly.</h2>
 
 	<form action=""></form>
+	
+	<br>
+	<br>
+
+	<div align="center">
+		<a href="BasicServlet"> Click here to go back to the index page.</a>
+	</div>
 
 </body>
 </html>
