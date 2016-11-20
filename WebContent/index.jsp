@@ -69,7 +69,7 @@
 	<br>
 	<br>
 	<div align="center">
-		<a href="ProductEntry"> Click here to input new products in the
+		<a href="/GiftBasket/DataEntry.jsp"> Click here to input new products in the
 			system.</a>
 	</div>
 
