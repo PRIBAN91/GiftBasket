@@ -33,6 +33,11 @@
 <body>
 	<h2 align="center">Enter your store's product details accordingly.</h2>
 
+	<br>
+	<%
+		String msg = (String) request.getAttribute("Message");
+	%>
+
 	<div align="center">
 		<form method="Post" action="ProductEntry" name="myForm">
 			<br> <br> Product Name : <input type="text" name="prodName">
@@ -43,6 +48,17 @@
 		</form>
 	</div>
 
+	<%
+		if (msg != null) {
+	%>
+	<br>
+	<br>
+	<div align="center">
+		<h3 style="color: red;"><%=msg%></h3>
+	</div>
+	<%
+		}
+	%>
 	<br>
 	<br>
 
