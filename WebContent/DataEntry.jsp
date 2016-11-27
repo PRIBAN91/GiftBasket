@@ -5,6 +5,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Products Entry Screen</title>
+<link rel="stylesheet" href="css/style.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="js/index.js"></script>
 <script type="text/javascript">
 	function validateForm() {
 		var prodName = document.forms["myForm"]["prodName"].value;
@@ -31,39 +35,59 @@
 </script>
 </head>
 <body>
-	<h2 align="center">Enter your store's product details accordingly.</h2>
 
-	<br>
-	<%
-		String msg = (String) request.getAttribute("Message");
-	%>
+	<div id="wrapper">
 
-	<div align="center">
-		<form method="Post" action="ProductEntry" name="myForm">
-			<br> <br> Product Name : <input type="text" name="prodName">
-			<br> <br> Sub Category Name : <input type="text"
-				name="subProdName"> <br> <br>Price : <input
-				type="text" name="price"> <br> <br> <input
-				type="submit" onclick="return validateForm()">
-		</form>
-	</div>
+		<div id="leftWrapper">
+			<div id="listView" class="list">
+				<li><a href="HomeScreen">Home</a></li>
+				<li><a href="#">Mandatory Basket</a></li>
+				<li><a href="SimpleBasket">Simple Basket</a></li>
+				<li><a href="CustomerReview">Customer Review</a></li>
+				<li class="list-item-active"><a href="#">Product Entry</a></li>
+				<li><a href="#">Edit Product Details</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</div>
+		</div>
 
-	<%
-		if (msg != null) {
-	%>
-	<br>
-	<br>
-	<div align="center">
-		<h3 style="color: red;"><%=msg%></h3>
-	</div>
-	<%
-		}
-	%>
-	<br>
-	<br>
+		<div id="rightWrapper">
+			<div id="header">
+				<a id="fullPage" href="#">|||</a>
+			</div>
+			<div id="contentWrapper">
+				<div class="article-header" al>
+					<div align="center">Enter store's product details</div>
+				</div>
 
-	<div align="center">
-		<a href="BasicServlet"> Click here to go back to the index page.</a>
+				<br> <br>
+
+				<%
+					String msg = (String) request.getAttribute("Message");
+				%>
+
+				<div align="center">
+					<form method="Post" action="ProductEntry" name="myForm">
+						Product Name : <input type="text" name="prodName"> <br>
+						<br> Sub Category Name : <input type="text"
+							name="subProdName"> <br> <br>Price : <input
+							type="text" name="price"> <br> <br> <input
+							type="submit" onclick="return validateForm()">
+					</form>
+				</div>
+
+				<%
+					if (msg != null) {
+				%>
+				<br> <br>
+				<div align="center">
+					<h3 style="color: red;"><%=msg%></h3>
+				</div>
+				<%
+					}
+				%>
+
+			</div>
+		</div>
 	</div>
 
 </body>

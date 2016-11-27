@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Gift Basket</display-name>
   <welcome-file-list>
-    <welcome-file>BasicServlet</welcome-file>
+    <welcome-file>HomeScreen</welcome-file>
   </welcome-file-list>
   <description>
       This is a simple web application with a source code organization

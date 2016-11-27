@@ -21,7 +21,7 @@
 	<br>
 
 	<div align="center">
-		<a href="BasicServlet"> Click here to go back to the index page.</a>
+		<a href="HomeScreen"> Click here to go back to the index page.</a>
 	</div>
 
 </body>

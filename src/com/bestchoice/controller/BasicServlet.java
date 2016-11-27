@@ -13,7 +13,7 @@ import com.bestchoice.bo.FetchProductLogic;
 /**
  * Servlet implementation class BasicServlet
  */
-@WebServlet(value = "/BasicServlet", loadOnStartup = 0)
+@WebServlet(value = "/HomeScreen", loadOnStartup = 0)
 public class BasicServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
