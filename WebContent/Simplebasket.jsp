@@ -39,7 +39,7 @@
 		<div id="leftWrapper">
 			<div id="listView" class="list">
 				<li><a href="HomeScreen">Home</a></li>
-				<li><a href="#">Mandatory Basket</a></li>
+				<li><a href="MandatoryBasket">Mandatory Basket</a></li>
 				<li class="list-item-active"><a href="#">Simple Basket</a></li>
 				<li><a href="CustomerReview">Customer Review</a></li>
 				<li><a href="/GiftBasket/DataEntry.jsp">Product Entry</a></li>

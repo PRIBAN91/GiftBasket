@@ -16,10 +16,10 @@
 		<div id="leftWrapper">
 			<div id="listView" class="list">
 				<li><a href="HomeScreen">Home</a></li>
-				<li><a href="#">Mandatory Basket</a></li>
+				<li><a href="MandatoryBasket">Mandatory Basket</a></li>
 				<li><a href="SimpleBasket">Simple Basket</a></li>
 				<li><a href="CustomerReview">Customer Review</a></li>
-				<li><a href="#">Product Entry</a></li>
+				<li><a href="/GiftBasket/DataEntry.jsp">Product Entry</a></li>
 				<li><a href="#">Edit Product Details</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</div>
