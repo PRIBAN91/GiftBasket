@@ -12,11 +12,20 @@
 <script src="js/index.js"></script>
 <script type="text/javascript">
 	function validateForm() {
-		var prodList = document.forms["myForm"]["products"].value;
+		var mandatoryList = document.forms["myForm"]["mandatory"].value;
+		alert(mandatoryList);
+		var optionalList = document.forms["myForm"]["optional"].value;
+		alert(optionalList);
 		var z = document.forms["myForm"]["budget"].value;
 		var regex = /^\d+(?:\.\d{0,2})$/;
-		if (!prodList.match(/\S/)) {
-			alert("Please chose at least one product from the list to proceed.");
+		if (!mandatoryList.match(/\S/)) {
+			alert("If you don't have anything mandatory to select,"
+					+ " please select our Home page to detemine Gift Basket.");
+			return false;
+		}
+		if (!optionalList.match(/\S/)) {
+			alert("If you don't have anything optional to select, "
+					+ "please select our Home page to detemine Gift Basket.");
 			return false;
 		}
 		if (!z.match(/\S/)) {
@@ -29,6 +38,18 @@
 			return false;
 		}
 	}
+
+	$(document).ready(function() {
+		var mandArr = new Array();
+		$("#mandatory").change(function() {
+			mandArr.pop();
+			mandArr.push($(this).val());
+		});
+		$("#optional").change(function() {
+			alert($(this).val());
+			alert(mandArr);
+		});
+	});
 </script>
 </head>
 <body>
@@ -63,8 +84,17 @@
 					List<String> prodList = (List<String>) request.getAttribute("ProductList");
 				%>
 				<div align="center">
-					<form method="Post" action="MakeBestChoice" name="myForm">
-						<select name="products" multiple>
+					<form method="Post" action="#" name="myForm">
+						Mandatory : <select name="mandatory" id="mandatory" multiple>
+							<%
+								for (String prodName : prodList) {
+							%>
+							<option value="<%=prodName%>"><%=prodName%></option>
+							<%
+								}
+							%>
+						</select> <br> <br> Optional : <select name="optional"
+							id="optional" multiple>
 							<%
 								for (String prodName : prodList) {
 							%>
