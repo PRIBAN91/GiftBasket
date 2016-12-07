@@ -6,7 +6,7 @@ import com.bestchoice.model.Products;
 import com.bestchoice.optimization.Knapsack;
 import com.bestchoice.util.Loadlist;
 
-public class MakeSimpBasketLogic {
+public class SimpleBasketLogic {
 
 	private int NormFactor = 10;
 

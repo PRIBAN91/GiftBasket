@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Gift Basket Result</title>
+<title>Mandatory Basket Result</title>
 </head>
 <body>
 
@@ -21,7 +21,7 @@
 	<br>
 
 	<div align="center">
-		<a href="HomeScreen"> Click here to go back to the index page.</a>
+		<a href="MandatoryBasket"> Click here to go back to the index page.</a>
 	</div>
 
 </body>

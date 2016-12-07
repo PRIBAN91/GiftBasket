@@ -41,19 +41,26 @@
 			return false;
 		}
 
+		var flag = false;
 		for (i = 0; i < mandatoryList.length; i++) {
-
 			for (j = 0; j < optionalList.length; j++) {
-				alert("Here");
+				flag = true;
 				if (mandatoryList[i] == optionalList[j]) {
-					alert("Hi");
 					$("#optional option[value=" + optionalList[j] + "]").prop(
 							'selected', false);
 					break;
 				}
 			}
 		}
-		return false;
+		if (flag) {
+			if (confirm("Few of your Mandatory bucket items are identical to the Optional ones."
+					+ "Since we can not have this discrepency, we have deleted the similar items"
+					+ " from your Optional bucket. Do you want to continue?") == true) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 </script>
 </head>
@@ -89,7 +96,7 @@
 					List<String> prodList = (List<String>) request.getAttribute("ProductList");
 				%>
 				<div align="center">
-					<form method="Post" action="#" name="myForm">
+					<form method="Post" action="MakeMandatoryBasket" name="myForm">
 						Mandatory : <select name="mandatory" id="mandatory" multiple>
 							<%
 								for (String prodName : prodList) {

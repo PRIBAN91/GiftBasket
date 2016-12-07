@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.bestchoice.bo.MakeSimpBasketLogic;
+import com.bestchoice.bo.SimpleBasketLogic;
 
 /**
  * Servlet implementation class PrepareSimpBasket
@@ -36,7 +36,7 @@ public class PrepareSimpBasket extends HttpServlet {
 		String prodName = request.getParameter("products");
 		String budgetAmt = request.getParameter("budget");
 		double budget = Double.parseDouble(budgetAmt);
-		MakeSimpBasketLogic makeSimpBasket = new MakeSimpBasketLogic();
+		SimpleBasketLogic makeSimpBasket = new SimpleBasketLogic();
 		String result = makeSimpBasket.prepSimpleBasket(prodName, (int) budget);
 		request.setAttribute("Result", result);
 		RequestDispatcher rs = request.getRequestDispatcher("SimpbasketResult.jsp");
