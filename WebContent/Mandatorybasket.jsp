@@ -12,20 +12,23 @@
 <script src="js/index.js"></script>
 <script type="text/javascript">
 	function validateForm() {
-		var mandatoryList = document.forms["myForm"]["mandatory"].value;
-		alert(mandatoryList);
-		var optionalList = document.forms["myForm"]["optional"].value;
-		alert(optionalList);
+		var mandatoryList = new Array(), optionalList = new Array();
+		$.each($("#mandatory").val(), function(i, val) {
+			mandatoryList[i] = val;
+		});
+		$.each($("#optional").val(), function(i, val) {
+			optionalList[i] = val;
+		});
 		var z = document.forms["myForm"]["budget"].value;
 		var regex = /^\d+(?:\.\d{0,2})$/;
-		if (!mandatoryList.match(/\S/)) {
+		if (mandatoryList == null || mandatoryList.length == 0) {
 			alert("If you don't have anything mandatory to select,"
-					+ " please select our Home page to detemine Gift Basket.");
+					+ " please select our Home page to determine Gift Basket.");
 			return false;
 		}
-		if (!optionalList.match(/\S/)) {
+		if (optionalList == null || optionalList.length == 0) {
 			alert("If you don't have anything optional to select, "
-					+ "please select our Home page to detemine Gift Basket.");
+					+ "please select our Home page to determine Gift Basket.");
 			return false;
 		}
 		if (!z.match(/\S/)) {
@@ -37,19 +40,21 @@
 					+ "Allowed input are [0-9] and . only with upto 2 decimal places.");
 			return false;
 		}
-	}
 
-	$(document).ready(function() {
-		var mandArr = new Array();
-		$("#mandatory").change(function() {
-			mandArr.pop();
-			mandArr.push($(this).val());
-		});
-		$("#optional").change(function() {
-			alert($(this).val());
-			alert(mandArr);
-		});
-	});
+		for (i = 0; i < mandatoryList.length; i++) {
+
+			for (j = 0; j < optionalList.length; j++) {
+				alert("Here");
+				if (mandatoryList[i] == optionalList[j]) {
+					alert("Hi");
+					$("#optional option[value=" + optionalList[j] + "]").prop(
+							'selected', false);
+					break;
+				}
+			}
+		}
+		return false;
+	}
 </script>
 </head>
 <body>
