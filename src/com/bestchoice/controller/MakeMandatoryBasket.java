@@ -34,8 +34,8 @@ public class MakeMandatoryBasket extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String mandatoryArr[] = request.getParameterValues("products");
-		String optionalArr[] = request.getParameterValues("products");
+		String mandatoryArr[] = request.getParameterValues("mandatory");
+		String optionalArr[] = request.getParameterValues("optional");
 		String budget = request.getParameter("budget");
 		double budgetAmt = Double.parseDouble(budget);
 		String result = "";
@@ -54,7 +54,7 @@ public class MakeMandatoryBasket extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.setAttribute("Result", result);
-		RequestDispatcher rs = request.getRequestDispatcher("Result.jsp");
+		RequestDispatcher rs = request.getRequestDispatcher("MandatoryResult.jsp");
 		rs.forward(request, response);
 	}
 
