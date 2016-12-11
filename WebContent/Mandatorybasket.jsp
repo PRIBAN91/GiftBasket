@@ -44,8 +44,8 @@
 		var flag = false;
 		for (i = 0; i < mandatoryList.length; i++) {
 			for (j = 0; j < optionalList.length; j++) {
-				flag = true;
 				if (mandatoryList[i] == optionalList[j]) {
+					flag = true;
 					$("#optional option[value=" + optionalList[j] + "]").prop(
 							'selected', false);
 					break;

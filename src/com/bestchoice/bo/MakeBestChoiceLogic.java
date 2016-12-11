@@ -71,7 +71,6 @@ public class MakeBestChoiceLogic {
 						int row = Integer.valueOf(picks[item][size].split(",")[0]);
 						int column = Integer.valueOf(picks[item][size].split(",")[1]);
 						pickList.add(picks[item][size]);
-						System.out.println(picks[item][size]);
 						item--;
 						size -= wt[row][column];
 					} else {
@@ -95,7 +94,6 @@ public class MakeBestChoiceLogic {
 					int row = Integer.valueOf(picks[item][size].split(",")[0]);
 					int column = Integer.valueOf(picks[item][size].split(",")[1]);
 					pickList.add(picks[item][size]);
-					System.out.println(picks[item][size]);
 					item--;
 					size -= wt[row][column];
 				} else {
@@ -117,7 +115,6 @@ public class MakeBestChoiceLogic {
 				i++;
 			}
 			Map.Entry<String, ArrayList<PriceReview>> entry = (Map.Entry<String, ArrayList<PriceReview>>) it.next();
-			System.out.println(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName());
 			sb.append(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName() + "<br>");
 			i++;
 		}

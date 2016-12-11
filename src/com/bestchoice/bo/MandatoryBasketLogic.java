@@ -76,7 +76,7 @@ public class MandatoryBasketLogic {
 			sb.append("<br> Congratulations! Your Mandatory Basket is ready. <br> <br>");
 			sb.append("<br><br><br> Items to be selected from Madatory List are : <br><br>");
 			prepareOutput(pickList, lhm, sb);
-			int mandatoryBudget = mckpExactlyone.getAmountSpent(), optionalBudget = budgetAmt - mandatoryBudget;
+			int mandatoryAmt = mckpExactlyone.getAmountSpent(), optionalBudget = budgetAmt - mandatoryAmt;
 			LinkedHashMap<String, ArrayList<PriceReview>> lhm1 = new LinkedHashMap<>();
 			for (Products prods : optionalList) {
 				String prodName = prods.getProductName();
@@ -106,19 +106,20 @@ public class MandatoryBasketLogic {
 				i++;
 			}
 			sb.append("<br><br><br> In Optional List : <br><br>");
-			determineOptionalList(optionalBudget, marr, wt, val, n, lhm1, sb);
+			determineOptionalList(optionalBudget, marr, wt, val, n, lhm1, sb, mandatoryAmt);
 		}
 		return sb;
 
 	}
 
 	public void determineOptionalList(int budgetAmt, int marr[], int wt[][], int val[][], int n,
-			LinkedHashMap<String, ArrayList<PriceReview>> lhm, StringBuilder sb) {
+			LinkedHashMap<String, ArrayList<PriceReview>> lhm, StringBuilder sb, int mandatoryAmt) {
 		MckpExactlyOne mckp1 = new MckpExactlyOne();
 		MckpReturn mckpExactlyone = mckp1.getMckpValues(budgetAmt, wt, val, n, marr);
 		String picks[][] = mckpExactlyone.getPicks();
 		int item = n, size = budgetAmt;
 		List<String> pickList = new ArrayList<>();
+		int expenditure = mandatoryAmt;
 		if (picks[item][size] == null || picks[n][budgetAmt].equals("-1")) {
 			MckpAtmostOne mckp = new MckpAtmostOne();
 			MckpReturn mckpAtmostOne = mckp.getMckpValues(budgetAmt, wt, val, n, marr);
@@ -129,22 +130,24 @@ public class MandatoryBasketLogic {
 						int row = Integer.valueOf(picks[item][size].split(",")[0]);
 						int column = Integer.valueOf(picks[item][size].split(",")[1]);
 						pickList.add(picks[item][size]);
-						System.out.println(picks[item][size]);
 						item--;
 						size -= wt[row][column];
 					} else {
 						item--;
 					}
 				}
+				expenditure += mckpAtmostOne.getAmountSpent();
 				sb.append("Not all the items could be selected. Please have a look.<br>");
 			} else {
 				sb.append("Sorry, nothing could be selected. Very little or no amount was ");
 				sb.append("left after creating mandatory basket.<br>");
 			}
 		} else {
+			expenditure += mckpExactlyone.getAmountSpent();
 			pickList = determinePickList(picks, wt, item, size);
 		}
 		prepareOutput(pickList, lhm, sb);
+		sb.append("<br><br> The total amount you need to spend is  : ").append(expenditure);
 	}
 
 	public List<String> determinePickList(String picks[][], int wt[][], int item, int size) {
@@ -154,7 +157,6 @@ public class MandatoryBasketLogic {
 				int row = Integer.valueOf(picks[item][size].split(",")[0]);
 				int column = Integer.valueOf(picks[item][size].split(",")[1]);
 				pickList.add(picks[item][size]);
-				System.out.println(picks[item][size]);
 				item--;
 				size -= wt[row][column];
 			} else {
@@ -178,7 +180,6 @@ public class MandatoryBasketLogic {
 				i++;
 			}
 			Map.Entry<String, ArrayList<PriceReview>> entry = (Map.Entry<String, ArrayList<PriceReview>>) it.next();
-			System.out.println(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName());
 			sb.append(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName() + "<br>");
 			i++;
 		}
