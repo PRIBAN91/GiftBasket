@@ -56,7 +56,9 @@
 			</div>
 			<div id="contentWrapper">
 				<div class="article-header" al>
-					<div align="center">Enter store's product details</div>
+					<div align="center">
+						Enter store's product details<br>(Only for Store Managers)
+					</div>
 				</div>
 
 				<br> <br>
