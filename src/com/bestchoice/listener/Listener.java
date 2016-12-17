@@ -30,8 +30,6 @@ public class Listener implements ServletContextListener, ServletContextAttribute
 		HttpSessionAttributeListener, HttpSessionActivationListener, HttpSessionBindingListener, HttpSessionIdListener,
 		ServletRequestListener, ServletRequestAttributeListener, AsyncListener {
 
-	private Timer timer;
-
 	/**
 	 * Default constructor.
 	 */
@@ -184,7 +182,6 @@ public class Listener implements ServletContextListener, ServletContextAttribute
 	 *      Hibernate session factory.
 	 */
 	public void contextDestroyed(ServletContextEvent arg0) {
-		timer.cancel();
 		HibernateUtil.shutdown();
 	}
 

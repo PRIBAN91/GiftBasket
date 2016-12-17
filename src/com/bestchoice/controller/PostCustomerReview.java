@@ -31,10 +31,8 @@ public class PostCustomerReview extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		System.out.println("In customer review");
 		String subProductName = request.getParameter("products");
 		String rating = request.getParameter("rating");
-		System.out.println(subProductName);
 		PostRatings postRating = new PostRatings();
 		boolean flag = true;
 		try {

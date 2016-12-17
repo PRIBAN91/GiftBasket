@@ -45,7 +45,6 @@ public class MakeMandatoryBasket extends HttpServlet {
 			if (mandatoryArr != null && optionalArr!=null) {
 				mandatoryItemList = Arrays.asList(mandatoryArr);
 				optionalItemList = Arrays.asList(optionalArr);
-				System.out.println("Budget Amount : " + budgetAmt);
 				MandatoryBasketLogic luw = new MandatoryBasketLogic();
 				result = luw.getBestChoiceList(mandatoryItemList, optionalItemList, (int) budgetAmt);
 			}

@@ -30,12 +30,10 @@ public class ProductEntry extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("In product entry");
 		String prodName = request.getParameter("prodName");
 		String subProdName = request.getParameter("subProdName");
 		String priceStr = request.getParameter("price");
 		double price = Double.valueOf(priceStr);
-		System.out.println(prodName + " : " + subProdName + " : " + price);
 		InputProdDetails input = new InputProdDetails();
 		input.insertProductData(prodName, subProdName, price);
 		request.setAttribute("Message", "Your product has been successfully inserted in database!");

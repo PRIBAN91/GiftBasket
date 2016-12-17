@@ -32,7 +32,6 @@ public class PrepareSimpBasket extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html");
-		System.out.println("In customer review");
 		String prodName = request.getParameter("products");
 		String budgetAmt = request.getParameter("budget");
 		double budget = Double.parseDouble(budgetAmt);

@@ -21,7 +21,6 @@ public class PostRatings {
 			double average = total / count;
 			DecimalFormat df = new DecimalFormat(".#");
 			average = Double.valueOf(df.format(average));
-			System.out.println(average);
 			prod.setReviewCount(count);
 			prod.setReviewTotal(total);
 			prod.setReviewValue(average);
