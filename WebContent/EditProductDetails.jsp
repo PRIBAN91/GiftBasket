@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>404 Error</title>
+<title>Edit Product Details</title>
 <link rel="stylesheet" href="css/style.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -31,9 +31,13 @@
 			</div>
 			<div id="contentWrapper">
 				<div class="article-header" al>
-					<div align="center">You must be lost. Or maybe there has been
-						some temporary system error. Let us guide you. Please click on the
-						navigation on links on the left to find what you were looking for.</div>
+					<div align="center">Edit/Delete Product Details</div>
+				</div>
+
+				<br> <br> <br> <br>
+				<div align="center">
+					<img alt="Work in progress" height="200" width="200"
+						src="images/Work_In_Progress.png">
 				</div>
 
 			</div>
