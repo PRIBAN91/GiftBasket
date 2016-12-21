@@ -70,11 +70,22 @@
 
 				<div align="center">
 					<form method="Post" action="ProductEntry" name="myForm">
-						Product Name : <input type="text" name="prodName"> <br>
-						<br> Sub Category Name : <input type="text"
-							name="subProdName"> <br> <br>Price : <input
-							type="text" name="price"> <br> <br> <input
-							type="submit" onclick="return validateForm()">
+						<table>
+							<tr>
+								<td align="center">Product Name :</td>
+								<td align="center"><input type="text" name="prodName"></td>
+							</tr>
+							<tr>
+								<td align="center">Sub Category Name :</td>
+								<td align="center"><input type="text" name="subProdName">
+								</td>
+							</tr>
+							<tr>
+								<td align="center">Price :</td>
+								<td align="center"><input type="text" name="price"></td>
+							</tr>
+						</table>
+						<br> <input type="submit" onclick="return validateForm()">
 					</form>
 				</div>
 

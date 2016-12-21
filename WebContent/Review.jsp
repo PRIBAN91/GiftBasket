@@ -46,7 +46,8 @@
 				<li><a href="SimpleBasket">Simple Basket</a></li>
 				<li class="list-item-active"><a href="#">Customer Review</a></li>
 				<li><a href="/GiftBasket/DataEntry.jsp">Product Entry</a></li>
-				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit Product Details</a></li>
+				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit
+						Product Details</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</div>
 		</div>
@@ -57,11 +58,10 @@
 			</div>
 			<div id="contentWrapper">
 				<div class="article-header" al>
-					<div align="center">Put your reviews and ratings here</div>
+					<div align="center">Customers can provide your ratings here</div>
 				</div>
 
-				<br>
-				<br>
+				<br> <br>
 				<%
 					@SuppressWarnings("unchecked")
 					List<Products> prodList = (List<Products>) request.getAttribute("ProductList");
@@ -69,7 +69,7 @@
 				%>
 				<div align="center">
 					<form method="Post" action="PostCustomerReview" name="myForm">
-						<select name="products">
+						Select Product for Rating : <select name="products">
 							<%
 								for (Products prods : prodList) {
 							%>

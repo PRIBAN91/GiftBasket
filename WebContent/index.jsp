@@ -42,7 +42,8 @@
 				<li><a href="SimpleBasket">Simple Basket</a></li>
 				<li><a href="CustomerReview">Customer Review</a></li>
 				<li><a href="/GiftBasket/DataEntry.jsp">Product Entry</a></li>
-				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit Product Details</a></li>
+				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit
+						Product Details</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</div>
 		</div>
@@ -63,18 +64,30 @@
 				%>
 				<div align="center">
 					<form method="Post" action="MakeBestChoice" name="myForm">
-						<select name="products" multiple>
-							<%
-								for (String prodName : prodList) {
-							%>
-							<option value="<%=prodName%>"><%=prodName%></option>
-							<%
-								}
-							%>
-						</select> <br> <br> Enter Budget : <input type="text"
-							name="budget"><br> <br> <input type="submit"
-							onclick="return validateForm()">
+						<table>
+							<tr>
+								<td align="center">Select Item/s :</td>
+								<td align="center"><select name="products" multiple
+									style="width: 150px;">
+										<%
+											for (String prodName : prodList) {
+										%>
+										<option value="<%=prodName%>"><%=prodName%></option>
+										<%
+											}
+										%>
+								</select></td>
+							</tr>
+						</table>
+						<br> Enter Budget : <input type="text" name="budget"><br>
+						<br> <input type="submit" onclick="return validateForm()">
 					</form>
+				</div>
+				<br> <br>
+				<div align="center">
+					For more details on this module, please click here : <a
+						href="https://github.com/PRIBAN91/GiftBasket/wiki/Gift-Basket-Concept"
+						target="_blank">Click Here</a>
 				</div>
 
 			</div>
