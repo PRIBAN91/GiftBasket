@@ -43,8 +43,7 @@
 				<li class="list-item-active"><a href="#">Simple Basket</a></li>
 				<li><a href="CustomerReview">Customer Review</a></li>
 				<li><a href="/GiftBasket/DataEntry.jsp">Product Entry</a></li>
-				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit
-						Product Details</a></li>
+				<li><a href="ViewProducts">View Product Details</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</div>
 		</div>
@@ -66,7 +65,6 @@
 				<%
 					@SuppressWarnings("unchecked")
 					List<String> prodList = (List<String>) request.getAttribute("ProductList");
-					//String msg = (String) request.getAttribute("Message");
 				%>
 				<div align="center">
 					<form method="Post" action="PrepareSimpBasket" name="myForm">

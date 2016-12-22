@@ -21,7 +21,8 @@
 	<br>
 
 	<div align="center">
-		<a href="MandatoryBasket"> Click here to go back to the index page.</a>
+		<a href="MandatoryBasket"> Click here to go back to the index
+			page.</a>
 	</div>
 
 </body>

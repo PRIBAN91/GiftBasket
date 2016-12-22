@@ -45,8 +45,7 @@
 				<li><a href="SimpleBasket">Simple Basket</a></li>
 				<li><a href="CustomerReview">Customer Review</a></li>
 				<li class="list-item-active"><a href="#">Product Entry</a></li>
-				<li><a href="/GiftBasket/EditProductDetails.jsp">Edit
-						Product Details</a></li>
+				<li><a href="ViewProducts">View Product Details</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</div>
 		</div>
