@@ -61,9 +61,9 @@ public class MckpExactlyOne {
 			mini = Integer.MAX_VALUE;
 		}
 
-		int amountTobeSpent = K[n][W];
+		int maxVal = K[n][W];
 		for (i = 0; i <= W; i++)
-			if (K[n][i] == amountTobeSpent)
+			if (K[n][i] == maxVal)
 				break;
 
 		MckpReturn res = new MckpReturn(picks, i);

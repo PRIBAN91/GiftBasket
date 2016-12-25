@@ -28,7 +28,7 @@ public class MckpAtmostOne {
 					}
 					pos++;
 				}
-				if (K[i - 1][w] > maxi) {
+				if (K[i - 1][w] > maxi || maxi == 0) {
 					K[i][w] = K[i - 1][w];
 					picks[i][w] = "-1";
 				} else {
@@ -38,9 +38,9 @@ public class MckpAtmostOne {
 			}
 		}
 
-		int amountTobeSpent = K[n][W];
+		int maxVal = K[n][W];
 		for (i = 0; i <= W; i++)
-			if (K[n][i] == amountTobeSpent)
+			if (K[n][i] == maxVal)
 				break;
 
 		MckpReturn res = new MckpReturn(picks, i);

@@ -137,7 +137,7 @@ public class MandatoryBasketLogic {
 					}
 				}
 				expenditure += mckpAtmostOne.getAmountSpent();
-				sb.append("Not all the items could be selected. Please have a look.<br>");
+				sb.append("Not all the items could be selected. Please have a look.<br><br>");
 			} else {
 				sb.append("Sorry, nothing could be selected. Very little or no amount was ");
 				sb.append("left after creating mandatory basket.<br><br>");
