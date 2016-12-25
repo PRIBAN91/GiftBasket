@@ -34,7 +34,7 @@ public class SimpleBasketLogic {
 		int amountSpent = kpReturn.getAmountSpent();
 		if (amountSpent > 0) {
 			sb.append("<br> Congratulations! Your Simple Basket is ready. <br> <br>");
-			sb.append("Your expenditure amount is : ").append(amountSpent);
+			sb.append("Your expenditure amount is ").append(amountSpent).append(" unit/s.");
 			sb.append("<br><br><br> Here are your item/s with their individual cost/s. <br><br>");
 			int item = sz, size = budgetAmt;
 			while (item > 0) {

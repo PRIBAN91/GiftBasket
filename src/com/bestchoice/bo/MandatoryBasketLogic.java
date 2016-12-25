@@ -140,14 +140,14 @@ public class MandatoryBasketLogic {
 				sb.append("Not all the items could be selected. Please have a look.<br>");
 			} else {
 				sb.append("Sorry, nothing could be selected. Very little or no amount was ");
-				sb.append("left after creating mandatory basket.<br>");
+				sb.append("left after creating mandatory basket.<br><br>");
 			}
 		} else {
 			expenditure += mckpExactlyone.getAmountSpent();
 			pickList = determinePickList(picks, wt, item, size);
 		}
 		prepareOutput(pickList, lhm, sb);
-		sb.append("<br><br> The total amount you need to spend is  : ").append(expenditure);
+		sb.append("<br><br> The total amount you need to spend is ").append(expenditure).append(" unit/s.");
 	}
 
 	public List<String> determinePickList(String picks[][], int wt[][], int item, int size) {

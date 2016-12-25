@@ -82,7 +82,7 @@ public class MakeBestChoiceLogic {
 						.append(" for your GiftBasket will exceed your budget. <br>")
 						.append("However we have determined one item from few of the categories ")
 						.append("you have chosen, which will produce the best GiftBasket. <br> <br>");
-				sb.append("Amount to be spent : " + mckpAtmostOne.getAmountSpent() + "<br> <br>");
+				sb.append("Amount to be spent is " + mckpAtmostOne.getAmountSpent() + " unit/s.<br><br>");
 			} else {
 				sb.append("<br><br> Sorry, we could not determine your Gift Basket for you. "
 						+ "<br><br>The budget seems to be very low. <br><br>"
@@ -101,11 +101,18 @@ public class MakeBestChoiceLogic {
 				}
 			}
 			sb.append("<br> Congratulations! Your Gift Basket is ready. <br> <br>");
-			sb.append("Amount to be spent : " + mckpExactlyone.getAmountSpent() + "<br> <br>");
+			sb.append("Amount to be spent is " + mckpExactlyone.getAmountSpent() + " unit/s.<br><br>");
 		}
+		prepareOutput(pickList, lhm, sb);
+		return sb;
+	}
+
+	public void prepareOutput(List<String> pickList, LinkedHashMap<String, ArrayList<PriceReview>> lhm,
+			StringBuilder sb) {
 		Collections.reverse(pickList);
 		int i = 0, row = 0, col = 0;
 		Iterator<Entry<String, ArrayList<PriceReview>>> it = lhm.entrySet().iterator();
+		int mapSize = lhm.size();
 		for (String s : pickList) {
 			String sarr[] = s.split(",");
 			row = Integer.parseInt(sarr[0]);
@@ -119,7 +126,10 @@ public class MakeBestChoiceLogic {
 					+ entry.getValue().get(col).getAmount() + " unit/s<br>");
 			i++;
 		}
-		return sb;
+		while (i < mapSize) {
+			sb.append(it.next().getKey() + "  ::  Nothing could be selected <br>");
+			i++;
+		}
 	}
 
 }

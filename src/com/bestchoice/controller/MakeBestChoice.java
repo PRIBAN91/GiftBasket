@@ -36,18 +36,19 @@ public class MakeBestChoice extends HttpServlet {
 			throws ServletException, IOException {
 		String arr[] = request.getParameterValues("products");
 		String budget = request.getParameter("budget");
-		double budgetAmt = Double.parseDouble(budget);
-		String result = "";
+		int budgetAmt = Integer.parseInt(budget);
+		String result = "<br><br>There was some system error at this point of time."
+				+ " Please try again after sometime. We will investigate the issue.";
 		List<String> desiredProductList = new ArrayList<>();
 		try {
 			if (arr != null) {
 				desiredProductList = Arrays.asList(arr);
 				System.out.println("Budget Amount : " + budgetAmt);
 				MakeBestChoiceLogic luw = new MakeBestChoiceLogic();
-				result = luw.getBestChoiceList(desiredProductList, (int) budgetAmt);
+				result = luw.getBestChoiceList(desiredProductList, budgetAmt);
 			}
 		} catch (Exception e) {
-			System.out.println("Exception occurred in main logic. ");
+			System.out.println("Exception occurred in main logic of Gift Basket.");
 			e.printStackTrace();
 		}
 		request.setAttribute("Result", result);

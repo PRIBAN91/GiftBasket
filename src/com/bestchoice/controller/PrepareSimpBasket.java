@@ -34,9 +34,16 @@ public class PrepareSimpBasket extends HttpServlet {
 		response.setContentType("text/html");
 		String prodName = request.getParameter("products");
 		String budgetAmt = request.getParameter("budget");
-		double budget = Double.parseDouble(budgetAmt);
+		int budget = Integer.parseInt(budgetAmt);
+		String result = "<br><br>There was some system error at this point of time."
+				+ " Please try again after sometime. We will investigate the issue.";
 		SimpleBasketLogic makeSimpBasket = new SimpleBasketLogic();
-		String result = makeSimpBasket.prepSimpleBasket(prodName, (int) budget);
+		try {
+			result = makeSimpBasket.prepSimpleBasket(prodName, budget);
+		} catch (Exception e) {
+			System.out.println("Exception occurred in main logic of Simple Basket.");
+			e.printStackTrace();
+		}
 		request.setAttribute("Result", result);
 		RequestDispatcher rs = request.getRequestDispatcher("SimpbasketResult.jsp");
 		rs.forward(request, response);

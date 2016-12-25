@@ -20,7 +20,7 @@
 			optionalList[i] = val;
 		});
 		var z = document.forms["myForm"]["budget"].value;
-		var regex = /^\d+(?:\.\d{0,2})$/;
+		var regex = /^\d+$/;
 		if (mandatoryList == null || mandatoryList.length == 0) {
 			alert("If you don't have anything mandatory to select,"
 					+ " please select our Home page to determine Gift Basket.");
@@ -36,8 +36,8 @@
 			return false;
 		}
 		if (!regex.test(z)) {
-			alert("Please enter Curreny characters only for Budget Amount. "
-					+ "Allowed input are [0-9] and . only with upto 2 decimal places.");
+			alert("Please enter Numbers only for Budget Amount. "
+					+ "Allowed input are [0-9].");
 			return false;
 		}
 

@@ -11,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.bestchoice.bo.MakeBestChoiceLogic;
 import com.bestchoice.bo.MandatoryBasketLogic;
 
 /**
@@ -21,35 +19,38 @@ import com.bestchoice.bo.MandatoryBasketLogic;
 @WebServlet("/MakeMandatoryBasket")
 public class MakeMandatoryBasket extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public MakeMandatoryBasket() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public MakeMandatoryBasket() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String mandatoryArr[] = request.getParameterValues("mandatory");
 		String optionalArr[] = request.getParameterValues("optional");
 		String budget = request.getParameter("budget");
-		double budgetAmt = Double.parseDouble(budget);
-		String result = "";
+		int budgetAmt = Integer.parseInt(budget);
+		String result = "<br><br>There was some system error at this point of time."
+				+ " Please try again after sometime. We will investigate the issue.";
 		List<String> mandatoryItemList = new ArrayList<>();
 		List<String> optionalItemList = new ArrayList<>();
 		try {
-			if (mandatoryArr != null && optionalArr!=null) {
+			if (mandatoryArr != null && optionalArr != null) {
 				mandatoryItemList = Arrays.asList(mandatoryArr);
 				optionalItemList = Arrays.asList(optionalArr);
 				MandatoryBasketLogic luw = new MandatoryBasketLogic();
-				result = luw.getBestChoiceList(mandatoryItemList, optionalItemList, (int) budgetAmt);
+				result = luw.getBestChoiceList(mandatoryItemList, optionalItemList, budgetAmt);
 			}
 		} catch (Exception e) {
-			System.out.println("Exception occurred in main logic. ");
+			System.out.println("Exception occurred in main logic of Mandatory Basket.");
 			e.printStackTrace();
 		}
 		request.setAttribute("Result", result);
@@ -58,9 +59,11 @@ public class MakeMandatoryBasket extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
