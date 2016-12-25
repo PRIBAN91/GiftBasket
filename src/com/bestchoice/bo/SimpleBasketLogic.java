@@ -35,13 +35,13 @@ public class SimpleBasketLogic {
 		if (amountSpent > 0) {
 			sb.append("<br> Congratulations! Your Simple Basket is ready. <br> <br>");
 			sb.append("Your expenditure amount is : ").append(amountSpent);
-			sb.append("<br><br> Here are your item/s with their individual cost/s : <br><br>");
+			sb.append("<br><br><br> Here are your item/s with their individual cost/s. <br><br>");
 			int item = sz, size = budgetAmt;
 			while (item > 0) {
 				if (picks[item][size] == 1) {
 					Products singleProd = list.get(item - 1);
-					sb.append(singleProd.getSubProductName()).append(" : ").append(singleProd.getPrice())
-							.append("<br>");
+					sb.append(singleProd.getSubProductName()).append(" of cost ").append(singleProd.getPrice())
+							.append(" unit/s<br>");
 					item--;
 					size -= wt[item];
 				} else {

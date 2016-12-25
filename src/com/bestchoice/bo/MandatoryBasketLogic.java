@@ -180,7 +180,8 @@ public class MandatoryBasketLogic {
 				i++;
 			}
 			Map.Entry<String, ArrayList<PriceReview>> entry = (Map.Entry<String, ArrayList<PriceReview>>) it.next();
-			sb.append(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName() + "<br>");
+			sb.append(entry.getKey() + "  ::  " + entry.getValue().get(col).getProdName() + " of cost "
+					+ entry.getValue().get(col).getAmount() + " unit/s<br>");
 			i++;
 		}
 	}
